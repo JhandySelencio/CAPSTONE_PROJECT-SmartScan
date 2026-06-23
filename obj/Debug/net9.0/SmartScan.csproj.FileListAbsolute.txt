@@ -439,4 +439,5 @@ C:\Users\JHANDY\Downloads\Capstone Project\SmartScan\bin\Debug\net9.0\runtimes\w
 C:\Users\JHANDY\Downloads\Capstone Project\SmartScan\bin\Debug\net9.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\JHANDY\Downloads\Capstone Project\SmartScan\bin\Debug\net9.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\JHANDY\Downloads\Capstone Project\SmartScan\bin\Debug\net9.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\JHANDY\Downloads\Capstone Project\SmartScan\obj\Debug\net9.0\compressed\z0x10cxo6a-i4j57w3gxy.gz
+C:\Users\JHANDY\Downloads\Capstone Project\SmartScan\obj\Debug\net9.0\SmartScan.sourcelink.json
+C:\Users\JHANDY\Downloads\Capstone Project\SmartScan\obj\Debug\net9.0\compressed\z0x10cxo6a-3gtcspxdoc.gz

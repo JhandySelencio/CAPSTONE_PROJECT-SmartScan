@@ -5,7 +5,7 @@ using SmartScan.Models;
 
 namespace SmartScan.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Cashier")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -20,7 +20,7 @@ namespace SmartScan.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Checkout()
         {
             return View();
         }

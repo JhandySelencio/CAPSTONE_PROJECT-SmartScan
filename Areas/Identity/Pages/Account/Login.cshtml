@@ -8,7 +8,9 @@
 @section Styles {
     <style>
         body{
-            background: linear-gradient(180deg, #f7d14d 32%, #eebe3a 70%, #da9e22 100%);
+            background: linear-gradient(0deg, #ff930f 0%, #fff95b 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     </style>
 }
@@ -23,13 +25,18 @@
                     <label asp-for="Input.Email" class="form-label">Email</label>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
-                <div class="form-floating mb-3 text-secondary">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label">Password</label>
+                <div class="mb-3 text-secondary">
+                    <div class="form-floating position-relative">
+                        <input asp-for="Input.Password" id="passwordInput" class="form-control pe-5" autocomplete="current-password" aria-required="true" placeholder="password" />
+                        <label asp-for="Input.Password" class="form-label">Password</label>
+                        <i class="fa-solid fa-eye position-absolute top-50 end-0 translate-middle-y me-3 text-secondary fs-5"
+                           id="togglePasswordIcon"
+                           style="cursor: pointer; z-index: 10; font-size: 1.15rem;"></i>
+                    </div>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="row align-items-start">
-                    <div class="checkbox mb-3 col">
+                    <div class="checkbox mb-2 col">
                         <label asp-for="Input.RememberMe" class="form-label">
                             <input class="form-check-input" asp-for="Input.RememberMe" />
                             @Html.DisplayNameFor(m => m.Input.RememberMe)
@@ -37,16 +44,16 @@
                     </div>
                     <div class="col text-end">
                         <p>
-                            <a style="color: #FF8800;" class="fw-semibold" id="forgot-password" asp-page="./ForgotPassword">Forgot password?</a>
+                            <a style="color: #FF8800;" class="fw-semibold link-underline link-underline-opacity-0" id="forgot-password" asp-page="./ForgotPassword">Forgot password</a>
                         </p>
                     </div>
                 </div>
                 <div class="p-2">
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary fw-semibold border border-0" style="background-color:#FC9C00;">Log In</button>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary fw-semibold border border-0 rounded-5" style="background-color:#FC9C00;">Log In</button>
                 </div>
                 <div>
-                    <p class="pt-4 text-center"> Don't have an account? 
-                        <a style="color: #FF8800;" class=" fw-semibold" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register Here!</a>
+                    <p class="pt-2 text-center"> Don't have an account? 
+                        <a style="color: #FF8800;" class=" fw-semibold link-underline link-underline-opacity-0" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register Here!</a>
                     </p>
                 </div>
             </form>
@@ -56,4 +63,23 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            const passwordInput = document.getElementById("passwordInput");
+            const toggleIcon = document.getElementById("togglePasswordIcon");
+
+            toggleIcon.addEventListener("click", function () {
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    this.classList.remove("fa-eye");
+                    this.classList.add("fa-eye-slash");
+                } else {
+                    passwordInput.type = "password";
+                    this.classList.remove("fa-eye-slash");
+                    this.classList.add("fa-eye");
+                }
+            });
+        });
+    </script>
 }
